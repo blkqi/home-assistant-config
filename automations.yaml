@@ -1,1 +1,47 @@
-[]
+- alias: 'Turn on outdoor lights when away at sunset'
+  trigger:
+    - platform: sun
+      event: sunset
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: not_home
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.outdoor_lights
+
+- alias: 'Turn off outdoor lights at sunrise'
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.outdoor_lights
+
+- alias: 'Turn off all lights when away'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: 'not_home'
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
+
+- alias: 'Turn on living room lights when home in the evening'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    - platform: state
+      entity_id: group.all_devices
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.living_room
