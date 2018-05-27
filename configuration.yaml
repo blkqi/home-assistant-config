@@ -1,39 +1,22 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: 46.7475
-  longitude: -122.9507
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 0
-  # metric for Metric, imperial for Imperial
+  latitude: 47.6147161
+  longitude: -121.907598
+  elevation: 62
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
-  # Customization file
   customize: !include customize.yaml
 
-# Enables the frontend
 frontend:
 
-# Enables configuration UI
 config:
 
 http:
   api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  reporting: false
 
-# Discover some devices automatically
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
@@ -51,27 +34,26 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: yr
-
 # Text to speech
 tts:
   - platform: google
 
-# Cloud
 cloud:
   alexa:
     filter:
       include_domains:
         - lock
-    entity_config:
-      lock.locked_5:
-        name: front door
-        description: lock on the front door
-      lock.locked_6:
-        name: shop door
-        description: lock on the shop door
+        - light
+        - switch
+        - group
+
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.1.1
+    username: admin
+    password: !secret asuswrt_password
+    new_device_defaults:
+      track_new_devices: false
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -80,6 +62,86 @@ zwave:
 media_player:
   - platform: plex
   - platform: cast
+    host: qicast.local
+
+switch:
+  - platform: transmission
+    host: qisrv.local
+  - platform: mqtt
+    name: String Lights
+    command_topic: "cmnd/porch/sonoff/POWER"
+    state_topic: "stat/porch/sonoff/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
+sensor:
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+  - platform: transmission
+    host: 192.168.1.20
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+      - 'active_torrents'
+#  - platform: mqtt
+#    state_topic: "test/counter"
+#    name: "Counter1"
+#    unit_of_measurement: "%"
+
+light:
+  - platform: tplink
+    name: Floor Lamp
+    host: 192.168.1.29 # qibulb.local
+
+cover:
+  - platform: mqtt
+    name: Right Garage Door
+    friendly_name: Right Garage
+    state_topic: "garage/door/1"
+    command_topic: "garage/button/1"
+    payload_open: "OPEN"
+    payload_close: "OPEN"
+    payload_stop: "OPEN"
+    state_open: "OPENED"
+    state_closed: "CLOSED"
+    optimistic: false
+    retain: false
+    value_template: '{{ value }}'
+  - platform: mqtt
+    name: Left Garage Door
+    friendly_name: Left Garage
+    state_topic: "garage/door/2"
+    command_topic: "garage/button/2"
+    payload_open: "OPEN"
+    payload_close: "OPEN"
+    payload_stop: "OPEN"
+    state_open: "OPENED"
+    state_closed: "CLOSED"
+    optimistic: false
+    retain: false
+    value_template: '{{ value }}'
+
+mqtt:
+  broker: core-mosquitto
+  username: qimqtt
+  password: !secret mqtt_password
+
+camera:
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://qifang.local/unicast -vf transpose=1
+    name: Garage Cam
 
 group: !include groups.yaml
 automation: !include automations.yaml

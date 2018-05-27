@@ -2,83 +2,83 @@ media_player.kcast:
   name:
   platform: cast
   unique_id: 7dd69ebe-fb36-b296-0c2f-7c3737c13695
+media_player.chrome_2:
+  name: Plex Web
+  platform: plex
+  unique_id: ptb3t60alueigaufwbf5hf0o
+media_player.fire_tv_stick:
+  name: Plex FireTV
+  platform: plex
+  unique_id: ba3f9160ccb16ac3-com-plexapp-android
+lock.front_door:
+  name: Front Door
+  platform: zwave
+  unique_id: 5-72057594127613952
+sensor.front_door_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859713
+sensor.front_door_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859729
+lock.shop_door:
+  name: Shop Door
+  platform: zwave
+  unique_id: 6-72057594144391168
+sensor.shop_door_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144636929
+sensor.shop_door_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 6-72057594144636945
+switch.hall_light:
+  name: Hall Light
+  platform: zwave
+  unique_id: 7-72057594160168960
+light.table_lamps:
+  name: Table Lamps
+  platform: zwave
+  unique_id: 8-72057594176962561
+switch.front_porch_light:
+  name: Front Porch Light
+  platform: zwave
+  unique_id: 9-72057594193723392
+media_player.moto_x_4:
+  name:
+  platform: plex
+  unique_id: 4d76b9b0792184f1-com-plexapp-android
 media_player.chrome:
   name:
   platform: plex
   unique_id: iau2zi9dors0z6t21pmmv8be
-media_player.plex_web_chrome:
-  name:
-  platform: plex
-  unique_id: z9ktgbqykvibyx2t7fxq1tt9
-lock.locked:
+zwave.aeotec_zw090_zstick_gen5_us:
   name:
   platform: zwave
-  unique_id: 2-72057594077282304
-lock.locked_2:
+  unique_id: node-1
+zwave.kwikset_touchpad_electronic_deadbolt:
   name:
   platform: zwave
-  unique_id: 3-72057594094059520
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_type:
+  unique_id: node-5
+zwave.kwikset_touchpad_electronic_deadbolt_2:
   name:
   platform: zwave
-  unique_id: 2-72057594077528065
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_level:
+  unique_id: node-6
+zwave.ge_zw4001_inwall_decora_style_onoff_relay_switch:
   name:
   platform: zwave
-  unique_id: 2-72057594077528081
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_2:
+  unique_id: node-7
+zwave.ge_14294_inwall_smart_dimmer:
   name:
   platform: zwave
-  unique_id: 3-72057594094305281
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_level_2:
+  unique_id: node-8
+zwave.ge_14291_inwall_smart_switch:
   name:
   platform: zwave
-  unique_id: 3-72057594094305297
-lock.locked_3:
-  name:
-  platform: zwave
-  unique_id: 4-72057594110836736
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_3:
-  name:
-  platform: zwave
-  unique_id: 4-72057594111082497
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_level_3:
-  name:
-  platform: zwave
-  unique_id: 4-72057594111082513
-lock.locked_4:
-  name: Front Door
-  platform: zwave
-  unique_id: 5-72057594127613952
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_4:
-  name:
-  platform: zwave
-  unique_id: 5-72057594127859713
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_level_4:
-  name:
-  platform: zwave
-  unique_id: 5-72057594127859729
-lock.locked_5:
-  name: Shop Door
-  platform: zwave
-  unique_id: 6-72057594144391168
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_5:
-  name:
-  platform: zwave
-  unique_id: 6-72057594144636929
-sensor.kwikset_touchpad_electronic_deadbolt_alarm_level_5:
-  name:
-  platform: zwave
-  unique_id: 6-72057594144636945
-media_player.chrome_2:
-  name:
-  platform: plex
-  unique_id: ptb3t60alueigaufwbf5hf0o
+  unique_id: node-9
 media_player.chrome_3:
   name:
   platform: plex
-  unique_id: rsz86n9xa9gacituua33z0gr
-media_player.fire_tv_stick:
-  name:
-  platform: plex
-  unique_id: ba3f9160ccb16ac3-com-plexapp-android
+  unique_id: g21g5ce0nehzwsnbp3k1vcfh

@@ -1,0 +1,12 @@
+#default_view:
+# view: yes
+# entities:
+#   - group.living_room
+
+Living Room:
+  - light.table_lamps
+  - light.floor_lamp
+
+Garage:
+  - cover.left_garage_door
+  - cover.right_garage_door
