@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: 47.6147161
-  longitude: -121.907598
+  latitude: !secret location_latitude
+  longitude: !secret location_longitude
   elevation: 62
   unit_system: imperial
   time_zone: America/Los_Angeles
