@@ -1,84 +1,205 @@
 media_player.kcast:
+  config_entry_id:
   name:
   platform: cast
   unique_id: 7dd69ebe-fb36-b296-0c2f-7c3737c13695
 media_player.chrome_2:
+  config_entry_id:
   name: Plex Web
   platform: plex
   unique_id: ptb3t60alueigaufwbf5hf0o
 media_player.fire_tv_stick:
+  config_entry_id:
   name: Plex FireTV
   platform: plex
   unique_id: ba3f9160ccb16ac3-com-plexapp-android
 lock.front_door:
+  config_entry_id:
   name: Front Door
   platform: zwave
   unique_id: 5-72057594127613952
 sensor.front_door_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594127859713
 sensor.front_door_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594127859729
 lock.shop_door:
+  config_entry_id:
   name: Shop Door
   platform: zwave
   unique_id: 6-72057594144391168
 sensor.shop_door_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636929
 sensor.shop_door_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636945
 switch.hall_light:
+  config_entry_id:
   name: Hall Light
   platform: zwave
   unique_id: 7-72057594160168960
 light.table_lamps:
+  config_entry_id:
   name: Table Lamps
   platform: zwave
   unique_id: 8-72057594176962561
 switch.front_porch_light:
+  config_entry_id:
   name: Front Porch Light
   platform: zwave
   unique_id: 9-72057594193723392
 media_player.moto_x_4:
+  config_entry_id:
   name:
   platform: plex
   unique_id: 4d76b9b0792184f1-com-plexapp-android
 media_player.chrome:
+  config_entry_id:
   name:
   platform: plex
   unique_id: iau2zi9dors0z6t21pmmv8be
 zwave.aeotec_zw090_zstick_gen5_us:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-1
 zwave.kwikset_touchpad_electronic_deadbolt:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-5
 zwave.kwikset_touchpad_electronic_deadbolt_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-6
 zwave.ge_zw4001_inwall_decora_style_onoff_relay_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-7
 zwave.ge_14294_inwall_smart_dimmer:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-8
 zwave.ge_14291_inwall_smart_switch:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-9
 media_player.chrome_3:
+  config_entry_id:
   name:
   platform: plex
   unique_id: g21g5ce0nehzwsnbp3k1vcfh
+media_player.chrome_4:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: ndo2pxbdulv6gpi089xp3nmi
+media_player.pixel_2:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 4473e045f25c4565-com-plexapp-android
+sensor.aeotec_zw100_multisensor_6_temperature:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697234
+sensor.aeotec_zw100_multisensor_6_luminance:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697266
+sensor.aeotec_zw100_multisensor_6_relative_humidity:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697298
+sensor.aeotec_zw100_multisensor_6_ultraviolet:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697650
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745825
+sensor.aeotec_zw100_multisensor_6_burglar:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745953
+zwave.aeotec_zw100_multisensor_6:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-10
+binary_sensor.aeotec_zw100_multisensor_6_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210680832
+sensor.aeotec_zw100_multisensor_6_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745793
+sensor.aeotec_zw100_multisensor_6_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745809
+zwave.ge_zw4001_inwall_decora_style_onoff_relay_switch_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-11
+switch.bedroom_light:
+  config_entry_id:
+  name: Bedroom Light
+  platform: zwave
+  unique_id: 11-72057594227277824
+zwave.shop_light:
+  config_entry_id:
+  name: Shop Light
+  platform: zwave
+  unique_id: node-13
+light.shop_light:
+  config_entry_id:
+  #name: Shop Light
+  platform: zwave
+  unique_id: 13-72057594260848641
+media_player.chrome_5:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: i6pwruss8flysam7qbt9896b
+media_player.optimus_mach:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 434d2b38c5fd4261-com-plexapp-android
+media_player.chrome_6:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: twzg14u732bfxz6helw8jyt2
+sensor.unknown_node_10_dew_point:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697394
