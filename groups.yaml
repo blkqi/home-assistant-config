@@ -14,3 +14,8 @@ Garage:
 Outdoor Lights:
   - switch.string_lights
   - switch.front_porch_light
+
+Other Lights:
+  - light.shop_light
+  - switch.hall_light
+  - switch.bedroom_light
