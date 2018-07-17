@@ -141,8 +141,14 @@ mqtt:
 
 camera:
   - platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://qifang.local/unicast -vf transpose=1
+    input: -rtsp_transport tcp -i rtsp://qifang.local/unicast #-vf transpose=1
     name: Garage Cam
+
+#history_graph:
+#  gr1:
+#    name: Freezer Temperature
+#    entities:
+#      sensor.freezer_temperature
 
 group: !include groups.yaml
 automation: !include automations.yaml
