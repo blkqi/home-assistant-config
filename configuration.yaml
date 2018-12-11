@@ -75,8 +75,10 @@ media_player:
     host: qicast.local
 
 switch:
-  - platform: transmission
-    host: qisrv.local
+  - platform: deluge
+    host: qinas
+    username : remote
+    password : !secret deluge_password
   - platform: mqtt
     name: String Lights
     command_topic: "cmnd/porch/sonoff/POWER"
@@ -98,13 +100,14 @@ sensor:
       - humidity
       - fog
       - cloudiness
-  - platform: transmission
-    host: 192.168.1.20
+  - platform: deluge
+    host: qinas
+    username : remote
+    password : !secret deluge_password
     monitored_variables:
       - 'current_status'
       - 'download_speed'
       - 'upload_speed'
-      - 'active_torrents'
   - platform: mqtt
     name: "Freezer Temperature"
     state_topic: "tele/freezer/sonoff/SENSOR"
