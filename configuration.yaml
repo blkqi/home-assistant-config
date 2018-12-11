@@ -38,14 +38,18 @@ sun:
 tts:
   - platform: google
 
-cloud:
-  alexa:
+api:
+
+alexa:
+  smart_home:
     filter:
       include_domains:
-        - lock
-        - light
-        - switch
         - group
+        - switch
+        - light
+        - lock
+#      exclude_entities:
+#        - switch.outside
 
 device_tracker:
   - platform: asuswrt
