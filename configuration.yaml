@@ -12,7 +12,11 @@ frontend:
 config:
 
 http:
-  api_password: !secret http_password
+  base_url: https://qihome.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+#  base_url: http://hassio.local:8123
+#  api_password: !secret http_password
 
 updater:
   reporting: false
