@@ -71,8 +71,6 @@ zwave:
 
 media_player:
   - platform: plex
-  - platform: cast
-    host: qicast.local
 
 switch:
   - platform: deluge
