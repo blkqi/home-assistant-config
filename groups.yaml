@@ -11,9 +11,13 @@ Garage:
   - cover.left_garage_door
   - cover.right_garage_door
 
+String Lights:
+  - switch.front_string_lights
+  - switch.back_string_lights
+
 Outdoor Lights:
-  - switch.string_lights
   - switch.front_porch_light
+  - group.string_lights
 
 Other Lights:
   - switch.hall_light
