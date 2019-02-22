@@ -21,6 +21,8 @@ http:
 updater:
   reporting: false
 
+system_health:
+
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
