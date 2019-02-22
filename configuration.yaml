@@ -130,7 +130,6 @@ light:
 cover:
   - platform: mqtt
     name: Right Garage Door
-    friendly_name: Right Garage
     state_topic: "garage/door/1"
     command_topic: "garage/button/1"
     payload_open: "OPEN"
@@ -143,7 +142,6 @@ cover:
     value_template: '{{ value }}'
   - platform: mqtt
     name: Left Garage Door
-    friendly_name: Left Garage
     state_topic: "garage/door/2"
     command_topic: "garage/button/2"
     payload_open: "OPEN"
