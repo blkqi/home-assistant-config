@@ -45,3 +45,14 @@
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room
+
+- alias: 'Push notification when freezer temperature too high'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.freezer_temperature
+    above: 2
+  action:
+    service: notify.qipush
+    data_template:
+      title: "Freezer temperature warning"
+      message: "{{ states.sensor.freezer_temperature.state }}°F"
