@@ -16,6 +16,12 @@ http:
   use_x_forwarded_for: true
   trusted_proxies: 192.168.1.15
 
+notify:
+  - name: qipush
+    platform: html5
+    gcm_api_key: !secret notify_key
+    gcm_sender_id: !secret notify_sender
+
 updater:
   reporting: false
 
