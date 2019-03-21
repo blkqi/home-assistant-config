@@ -14,7 +14,7 @@ config:
 http:
   base_url: https://home.blk.me
   use_x_forwarded_for: true
-  trusted_proxies: 192.168.1.15
+  trusted_proxies: 192.168.1.5
 
 notify:
   - name: qipush
@@ -63,12 +63,12 @@ alexa:
 
 device_tracker:
   - platform: unifi
-    host: 192.168.1.15
+    host: 192.168.1.5
     port: 8443
     site_id: ytwfky8f
     username: blk
     password: !secret unifi_password
-    verify_ssl: false
+    verify_ssl: true
     new_device_defaults:
       track_new_devices: false
       hide_if_away: false
@@ -82,7 +82,7 @@ media_player:
 
 switch:
   - platform: deluge
-    host: qinas
+    host: 192.168.1.5
     username : remote
     password : !secret deluge_password
   - platform: mqtt
@@ -115,7 +115,7 @@ sensor:
       - fog
       - cloudiness
   - platform: deluge
-    host: qinas
+    host: 192.168.1.5
     username : remote
     password : !secret deluge_password
     monitored_variables:
@@ -131,7 +131,7 @@ sensor:
 light:
   - platform: tplink
     name: Floor Lamp
-    host: 192.168.1.29 # qibulb.local
+    host: 192.168.1.113
 
 cover:
   - platform: mqtt
