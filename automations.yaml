@@ -1,3 +1,12 @@
+- alias: 'Set theme at startup'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: slate
+
 - alias: 'Turn on outdoor lights when away at sunset'
   trigger:
     - platform: sun

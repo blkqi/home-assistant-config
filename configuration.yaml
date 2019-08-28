@@ -8,6 +8,7 @@ homeassistant:
   customize: !include customize.yaml
 
 frontend:
+  themes: !include themes.yaml
 
 config:
 
@@ -68,7 +69,7 @@ device_tracker:
     site_id: ytwfky8f
     username: blk
     password: !secret unifi_password
-    verify_ssl: true
+    verify_ssl: false
     new_device_defaults:
       track_new_devices: false
       hide_if_away: false
