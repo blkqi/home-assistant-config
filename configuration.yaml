@@ -13,9 +13,14 @@ frontend:
 config:
 
 http:
-  base_url: https://home.blk.me
+  base_url: !secret base_url
   use_x_forwarded_for: true
-  trusted_proxies: 192.168.1.5
+  trusted_proxies: !secret nginx_host
+
+hacs:
+  token: !secret hacs_token
+  theme: true
+  python_script: true
 
 notify:
   - name: qipush
@@ -59,31 +64,27 @@ alexa:
         - switch
         - light
         - lock
-#      exclude_entities:
-#        - switch.outside
 
-device_tracker:
-  - platform: unifi
-    host: 192.168.1.5
-    port: 8443
-    site_id: ytwfky8f
-    username: blk
-    password: !secret unifi_password
-    verify_ssl: false
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: false
+unifi:
+  controllers:
+    - host: !secret unifi_host
+      site: ytwfky8f
 
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
+
+mqtt:
+  broker: core-mosquitto
+  username: qimqtt
+  password: !secret mqtt_password
 
 media_player:
   - platform: plex
 
 switch:
   - platform: deluge
-    host: 192.168.1.5
+    host: !secret deluge_host
     username : remote
     password : !secret deluge_password
   - platform: mqtt
@@ -160,15 +161,13 @@ cover:
     retain: false
     value_template: '{{ value }}'
 
-mqtt:
-  broker: core-mosquitto
-  username: qimqtt
-  password: !secret mqtt_password
-
-camera:
-  - platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://qifang.local/unicast #-vf transpose=1
-    name: Garage Cam
+# camera:
+#   - platform: ffmpeg
+#     input: -rtsp_transport tcp -i rtsp://192.168.1.28/unicast #-vf transpose=1
+#     name: Garage Cam
+#   - platform: uvc
+#     nvr: 192.168.1.5
+#     key: !secret uvc_key
 
 #history_graph:
 #  gr1:
