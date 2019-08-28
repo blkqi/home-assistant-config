@@ -1,0 +1,354 @@
+resources:
+  - type: module
+    url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
+  - type: module
+    url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+  - type: module
+    url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+  - type: module
+    url: /community_plugin/simple-thermostat/simple-thermostat.js
+  - type: js
+    url: /community_plugin/bar-card/bar-card.js
+title: Home
+views:
+  - cards:
+      - cards:
+          - cards:
+              - entities:
+                  - device_tracker.qidroid
+                entity: group.brett
+                state_image:
+                  home: /local/images/brett_home.jpg
+                  not_home: /local/images/brett_not_home.jpg
+                title: Brett
+                type: picture-glance
+              - entities:
+                  - device_tracker.motox
+                entity: group.sonja
+                state_image:
+                  home: /local/images/sonja_home.jpg
+                  not_home: /local/images/sonja_not_home.jpg
+                title: Sonja
+                type: picture-glance
+            type: horizontal-stack
+          - entities:
+              - sensor.work_commute
+            type: entities
+          - card:
+              artwork: cover
+              entity: media_player.plex_living_room_tv
+              icon: 'mdi:television'
+              type: 'custom:mini-media-player'
+            conditions:
+              - entity: media_player.plex_living_room_tv
+                state_not: 'off'
+            type: conditional
+        type: vertical-stack
+      - type: vertical-stack
+        cards:
+          - type: custom:simple-thermostat
+            entity: climate.living_room
+            step_size: 1
+            icon:
+              heat: mdi:fire
+              cool: mdi:snowflake
+              eco: mdi:leaf
+              off: mdi:power
+              auto: mdi:autorenew
+              idle: mdi:power
+              away: mdi:leaf
+            sensors:
+              - entity: sensor.living_room_thermostat_hvac_state
+              - entity: sensor.living_room_thermostat_humidity
+                name: Humidity
+#          - type: thermostat
+#            entity: climate.living_room
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.bedroom_temp
+                name: Bedroom
+                line_color: '#2980b9'
+                line_width: 6
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.bathroom_temperature_f
+                name: Bathroom
+                line_color: '#b58e31'
+                line_width: 6
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.office_temperature_f
+                name: Office
+                line_color: '#b93829'
+                line_width: 6
+      - cards:
+          - backdrop:
+              day: '#2980b9'
+              night: '#022F4C'
+            entity: weather.dark_sky
+            name: ' '
+            secondary_info: humidity
+            type: 'custom:simple-weather-card'
+          - cards:
+              - entities:
+                  - sensor.sun_elevation
+                line_color: '#b58e31'
+                line_width: 4
+                name: Sun Elevation
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - sensor.dark_sky_precip_probability
+                line_color: '#2980b9'
+                line_width: 4
+                name: Chance of Rain
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+        type: vertical-stack
+      - type: 'custom:mini-graph-card'
+        name: Freezer
+        entities:
+          - sensor.freezer_temperature
+        line_color: '#b58e31'
+        line_width: 4
+      - cards:
+          - cards:
+              - entity: light.table_lamps
+                name: Table Lamps
+                type: light
+              - entity: light.qibulb
+                name: Desk Lamp
+                type: light
+            type: horizontal-stack
+          - cards:
+              - entity: switch.hall_light
+                name: Hall Lights
+                type: entity-button
+              - entity: switch.bedroom_light
+                name: Bedroom Lights
+                type: entity-button
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.plex
+                image: /local/images/plex.png
+                name: Plex
+                type: picture-entity
+            type: horizontal-stack
+        type: vertical-stack
+      - type: vertical-stack
+        cards:
+        - entity: group.string_lights
+          name: String Lights
+          type: entity-button
+        - type: horizontal-stack
+          cards:
+          - entity: switch.front_string_lights
+            name: Front String Lights
+            type: entity-button
+          - entity: switch.back_string_lights
+            name: Back String Lights
+            type: entity-button
+          - entity: switch.front_porch_light
+            type: entity-button
+            name: Front Porch Light
+      - entities:
+          - cover.left_garage_door
+          - cover.right_garage_door
+        show_header_toggle: true
+        title: Garage
+        type: entities
+      - entities:
+          - lock.front_door
+          - lock.shop_door
+        title: Lock
+        type: entities
+    icon: 'mdi:home'
+    path: default_view
+    title: Home
+  - icon: 'mdi:grill'
+    title: Smoker
+    badges: []
+    cards:
+      - type: conditional
+        conditions:
+        - entity: sensor.smoker_probe_1_temperature
+          state: "unavailable"
+        - entity: sensor.smoker_probe_2_temperature
+          state: "unavailable"
+        - entity: sensor.smoker_probe_3_temperature
+          state: "unavailable"
+        - entity: sensor.smoker_probe_4_temperature
+          state: "unavailable"
+        card:
+          type: markdown
+          content: >
+            # 🚬 Not Smoking Right Now
+      - type: conditional
+        conditions:
+        - entity: sensor.smoker_probe_1_temperature
+          state_not: "unavailable"
+        - entity: sensor.smoker_probe_2_temperature
+          state_not: "unavailable"
+        - entity: sensor.smoker_probe_3_temperature
+          state_not: "unavailable"
+        - entity: sensor.smoker_probe_4_temperature
+          state_not: "unavailable"
+        card:
+          type: vertical-stack
+          cards:
+          - type: 'custom:mini-graph-card'
+            name: Probe Temps
+            entities:
+              - sensor.smoker_probe_1_temperature
+              - sensor.smoker_probe_2_temperature
+              - sensor.smoker_probe_3_temperature
+              - sensor.smoker_probe_4_temperature
+            line_color: '#b58e31'
+            line_width: 4
+          - type: vertical-stack
+            cards:
+              - entity: sensor.smoker_probe_1_temperature
+                max: 100
+                min: 0
+                severity:
+                  green: 0
+                  red: 0
+                  yellow: 0
+                theme: default
+                type: gauge
+              - entity: sensor.smoker_probe_2_temperature
+                max: 100
+                min: 0
+                severity:
+                  green: 0
+                  red: 0
+                  yellow: 0
+                theme: default
+                type: gauge
+              - entity: sensor.smoker_probe_3_temperature
+                max: 100
+                min: 0
+                severity:
+                  green: 0
+                  red: 0
+                  yellow: 0
+                theme: default
+                type: gauge
+              - entity: sensor.smoker_probe_4_temperature
+                max: 100
+                min: 0
+                severity:
+                  green: 0
+                  red: 0
+                  yellow: 0
+                theme: default
+                type: gauge
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entities:
+                  - sensor.processor_use
+                hours_to_show: 24
+                line_color: '#2980b9'
+                line_width: 2
+                name: CPU
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+          - cards:
+              - align: split
+                color: '#00ba6a'
+                entity: sensor.disk_use_percent_home
+                show_icon: true
+                title: HDD
+                title_position: inside
+                type: 'custom:bar-card'
+              - align: split
+                entity: sensor.memory_use_percent
+                show_icon: true
+                title: RAM
+                title_position: inside
+                type: 'custom:bar-card'
+              - entities:
+                  - sensor.count_automations
+                  - sensor.count_lights
+                  - sensor.count_scripts
+                  - sensor.count_sensors
+                  - sensor.count_switches
+                type: glance
+              - entities:
+                  - sensor.last_boot
+                type: entities
+            type: vertical-stack
+        title: System
+        type: vertical-stack
+      - cards:
+          - cards:
+              - entities:
+                  - sensor.speedtest_download
+                hours_to_show: 24
+                icon: 'mdi:download-network'
+                line_color: '#2980b9'
+                line_width: 6
+                name: Download
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - sensor.speedtest_upload
+                hours_to_show: 24
+                icon: 'mdi:upload-network'
+                line_color: '#2980b9'
+                line_width: 6
+                name: Upload
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - sensor.speedtest_ping
+                hours_to_show: 24
+                icon: 'mdi:server-network'
+                line_color: '#2980b9'
+                line_width: 6
+                name: Ping
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+        title: Network
+        type: vertical-stack
+      - cards:
+          - cards:
+              - entities:
+                  - sensor.pi_hole_ads_blocked_today
+                hours_to_show: 24
+                line_color: '#2980b9'
+                line_width: 4
+                name: Ads Blocked Today
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - sensor.pi_hole_ads_percentage_blocked_today
+                hours_to_show: 24
+                line_color: '#2980b9'
+                line_width: 4
+                name: Percentage Blocked
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+          - cards:
+              - align: split
+                color: '#00ba6a'
+                entity: sensor.pi_hole_dns_queries_today
+                max: '30000'
+                show_icon: true
+                title: DNS Queries Today
+                title_position: inside
+                type: 'custom:bar-card'
+              - align: split
+                entity: sensor.pi_hole_domains_blocked
+                icon: 'mdi:cancel'
+                max: '2000000'
+                show_icon: true
+                title: Domains Blocked
+                title_position: inside
+                type: 'custom:bar-card'
+            type: vertical-stack
+        title: Pi-Hole
+        type: vertical-stack
+    icon: 'mdi:settings'
+    path: settings
+    title: Settings

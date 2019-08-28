@@ -1,7 +1,14 @@
-#default_view:
-# view: yes
-# entities:
-#   - group.living_room
+brett:
+  name: Brett
+  view: no
+  entities:
+    - device_tracker.qidroid
+
+sonja:
+  name: Sonja
+  view: no
+  entities:
+    - device_tracker.motox
 
 Living Room:
   - light.table_lamps
