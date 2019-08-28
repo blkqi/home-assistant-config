@@ -1,0 +1,174 @@
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+  - platform: deluge
+    host: !secret deluge_host
+    username : remote
+    password : !secret deluge_password
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+  - platform: mqtt
+    name: "Freezer Temperature"
+    state_topic: "tele/freezer/sonoff/SENSOR"
+    value_template: "{{ value_json.DS18B20.Temperature }}"
+    unit_of_measurement: "°F"
+  - platform: mqtt
+    name: "Smoker Probe 1 Temperature"
+    state_topic: "smoker/probe/1/temp"
+    availability_topic: "smoker/availability"
+    value_template: "{{ value_json }}"
+    unit_of_measurement: "°F"
+  - platform: mqtt
+    name: "Smoker Probe 2 Temperature"
+    state_topic: "smoker/probe/2/temp"
+    availability_topic: "smoker/availability"
+    value_template: "{{ value_json }}"
+    unit_of_measurement: "°F"
+  - platform: mqtt
+    name: "Smoker Probe 3 Temperature"
+    state_topic: "smoker/probe/3/temp"
+    availability_topic: "smoker/availability"
+    value_template: "{{ value_json }}"
+    unit_of_measurement: "°F"
+  - platform: mqtt
+    name: "Smoker Probe 4 Temperature"
+    state_topic: "smoker/probe/4/temp"
+    availability_topic: "smoker/availability"
+    value_template: "{{ value_json }}"
+    unit_of_measurement: "°F"
+  - platform: darksky
+    api_key: !secret dark_sky_api_key
+    scan_interval: '00:05:00'
+    monitored_conditions:
+      - temperature
+      - precip_probability
+      - precip_type
+      - humidity
+      - cloud_cover
+      - nearest_storm_distance
+      - precip_intensity
+      - wind_speed
+  - platform: template
+    sensors:
+      sun_elevation:
+        friendly_name: Sun Elevation
+        value_template: '{{states.sun.sun.attributes.elevation}}'
+        unit_of_measurement: '°'
+  - platform: plex
+    host: !secret plex_host
+  - platform: pi_hole
+    host: !secret pi_hole_host
+    monitored_conditions:
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - unique_clients
+  - platform: systemmonitor
+    resources:
+      - type: processor_use
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_use_percent
+      - type: ipv4_address
+        arg: eth0
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: last_boot
+  - platform: waze_travel_time
+    origin: !secret travel_origin
+    destination: !secret travel_destination
+    region: 'NA'
+    name: Work Commute
+  - platform: template
+    sensors:
+    #----- Count Automations
+      count_automations:
+        entity_id: sensor.date
+        friendly_name: Automations
+        value_template: >
+          {%- set domains = ['automation'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+    #----- Count Scripts
+      count_scripts:
+        entity_id: sensor.date
+        friendly_name: Scripts
+        value_template: >
+          {%- set domains = ['script'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+    #----- Count Binary Sensors
+      count_binary_sensors:
+        entity_id: sensor.date
+        friendly_name: Binary Sensors
+        value_template: >
+          {%- set domains = ['binary_sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+    #----- Count Sensors
+      count_sensors:
+        entity_id: sensor.date
+        friendly_name: Sensors
+        value_template: >
+          {%- set domains = ['sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+    #----- Count Switches
+      count_switches:
+        entity_id: sensor.date
+        friendly_name: Switches
+        value_template: >
+          {%- set domains = ['switch'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+    #----- Count Lights
+      count_lights:
+        entity_id: sensor.date
+        friendly_name: Lights
+        value_template: >
+          {%- set domains = ['light'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}

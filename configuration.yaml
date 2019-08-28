@@ -50,11 +50,20 @@ map:
 # Track the sun
 sun:
 
-# Text to speech
-tts:
-  - platform: google
-
 api:
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api_key
+    mode: daily
+
+speedtestdotnet:
+  scan_interval:
+    hours: 6
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 alexa:
   smart_home:
@@ -82,6 +91,12 @@ mqtt:
 media_player:
   - platform: plex
 
+climate:
+  - platform: generic_thermostat
+    name: Living Room
+    heater: switch.study_heater
+    target_sensor: sensor.study_temperature
+
 switch:
   - platform: deluge
     host: !secret deluge_host
@@ -104,36 +119,10 @@ switch:
     payload_off: "OFF"
     retain: true
 
-sensor:
-  - platform: yr
-    monitored_conditions:
-      - temperature
-      - symbol
-      - precipitation
-      - windSpeed
-      - pressure
-      - windDirection
-      - humidity
-      - fog
-      - cloudiness
-  - platform: deluge
-    host: 192.168.1.5
-    username : remote
-    password : !secret deluge_password
-    monitored_variables:
-      - 'current_status'
-      - 'download_speed'
-      - 'upload_speed'
-  - platform: mqtt
-    name: "Freezer Temperature"
-    state_topic: "tele/freezer/sonoff/SENSOR"
-    value_template: "{{ value_json.DS18B20.Temperature }}"
-    unit_of_measurement: "°F"
-
-light:
-  - platform: tplink
-    name: Floor Lamp
-    host: 192.168.1.113
+tplink:
+  discovery: false
+  light:
+    - host: 192.168.1.113
 
 cover:
   - platform: mqtt
@@ -177,4 +166,5 @@ cover:
 
 group: !include groups.yaml
 automation: !include automations.yaml
+sensor: !include sensors.yaml
 script: !include scripts.yaml
