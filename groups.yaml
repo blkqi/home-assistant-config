@@ -8,7 +8,7 @@ sonja:
   name: Sonja
   view: no
   entities:
-    - device_tracker.motox
+    - device_tracker.spixel
 
 Living Room:
   - light.table_lamps

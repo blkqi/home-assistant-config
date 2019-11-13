@@ -23,7 +23,7 @@ views:
                 title: Brett
                 type: picture-glance
               - entities:
-                  - device_tracker.motox
+                  - device_tracker.spixel
                 entity: group.sonja
                 state_image:
                   home: /local/images/sonja_home.jpg
