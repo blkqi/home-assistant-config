@@ -64,16 +64,6 @@
         friendly_name: Sun Elevation
         value_template: '{{states.sun.sun.attributes.elevation}}'
         unit_of_measurement: '°'
-  - platform: plex
-    host: !secret plex_host
-  - platform: pi_hole
-    host: !secret pi_hole_host
-    monitored_conditions:
-      - ads_blocked_today
-      - ads_percentage_today
-      - dns_queries_today
-      - domains_being_blocked
-      - unique_clients
   - platform: systemmonitor
     resources:
       - type: processor_use

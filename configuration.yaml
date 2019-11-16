@@ -153,6 +153,12 @@ cover:
     retain: false
     value_template: '{{ value }}'
 
+plex:
+    host: !secret plex_host
+
+pi_hole:
+    host: !secret pi_hole_host
+
 # camera:
 #   - platform: ffmpeg
 #     input: -rtsp_transport tcp -i rtsp://192.168.1.28/unicast #-vf transpose=1
