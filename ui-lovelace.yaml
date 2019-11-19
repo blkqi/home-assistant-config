@@ -112,6 +112,11 @@ views:
           - sensor.freezer_temperature
         line_color: '#b58e31'
         line_width: 4
+        hours_to_show: 12
+        points_per_hour: 5
+        show:
+            points: false
+            extrema: true
       - cards:
           - cards:
               - entity: light.table_lamps
