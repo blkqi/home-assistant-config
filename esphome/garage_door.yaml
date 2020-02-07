@@ -1,0 +1,55 @@
+esphome:
+  name: garage_door
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+
+logger:
+
+api:
+
+ota:
+
+switch:
+  - id: garage_door_relay
+    platform: gpio
+    internal: true
+    pin: D1
+
+binary_sensor:
+- id: garage_door_sensor
+  platform: gpio
+  internal: true
+  pin:
+    number: D2
+    mode: INPUT_PULLUP
+    inverted: False
+  device_class: garage_door
+  filters:
+    - delayed_on_off: 20ms
+
+cover:
+  - platform: template
+    name: "Garage Door"
+    lambda: |-
+      if (id(garage_door_sensor).state) {
+        return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
+      }
+    open_action:
+      - switch.turn_on: garage_door_relay
+      - delay: 1s
+      - switch.turn_off: garage_door_relay
+    close_action:
+      - switch.turn_on: garage_door_relay
+      - delay: 1s
+      - switch.turn_off: garage_door_relay
+    stop_action:
+      - switch.turn_on: garage_door_relay
+      - delay: 1s
+      - switch.turn_off: garage_door_relay
