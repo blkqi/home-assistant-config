@@ -1,0 +1,5 @@
+substitutions:
+    devicename: garage_door_left
+    friendlyname: "Left Garage Door"
+
+<<: !include .garage_door.yaml

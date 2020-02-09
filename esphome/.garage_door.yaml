@@ -1,5 +1,5 @@
 esphome:
-  name: garage_door
+  name: ${devicename}
   platform: ESP8266
   board: d1_mini
 
@@ -15,13 +15,13 @@ api:
 ota:
 
 switch:
-  - id: garage_door_relay
+  - id: ${devicename}_relay
     platform: gpio
     internal: true
     pin: D1
 
 binary_sensor:
-- id: garage_door_sensor
+- id: ${devicename}_sensor
   platform: gpio
   internal: true
   pin:
@@ -34,22 +34,22 @@ binary_sensor:
 
 cover:
   - platform: template
-    name: "Garage Door"
+    name: ${friendlyname}
     lambda: |-
-      if (id(garage_door_sensor).state) {
+      if (id(${devicename}_sensor).state) {
         return COVER_OPEN;
       } else {
         return COVER_CLOSED;
       }
     open_action:
-      - switch.turn_on: garage_door_relay
+      - switch.turn_on: ${devicename}_relay
       - delay: 1s
-      - switch.turn_off: garage_door_relay
+      - switch.turn_off: ${devicename}_relay
     close_action:
-      - switch.turn_on: garage_door_relay
+      - switch.turn_on: ${devicename}_relay
       - delay: 1s
-      - switch.turn_off: garage_door_relay
+      - switch.turn_off: ${devicename}_relay
     stop_action:
-      - switch.turn_on: garage_door_relay
+      - switch.turn_on: ${devicename}_relay
       - delay: 1s
-      - switch.turn_off: garage_door_relay
+      - switch.turn_off: ${devicename}_relay
