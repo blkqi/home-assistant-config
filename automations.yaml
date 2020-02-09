@@ -64,4 +64,4 @@
     service: notify.qipush
     data_template:
       title: "Freezer temperature warning"
-      message: "{{ states.sensor.freezer_temperature.state }}°F"
+      message: "{{ states.sensor.freezer_temperature.state }}°C"

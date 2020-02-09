@@ -18,11 +18,6 @@
       - 'download_speed'
       - 'upload_speed'
   - platform: mqtt
-    name: "Freezer Temperature"
-    state_topic: "tele/freezer/sonoff/SENSOR"
-    value_template: "{{ value_json.DS18B20.Temperature }}"
-    unit_of_measurement: "°F"
-  - platform: mqtt
     name: "Smoker Probe 1 Temperature"
     state_topic: "smoker/probe/1/temp"
     availability_topic: "smoker/availability"

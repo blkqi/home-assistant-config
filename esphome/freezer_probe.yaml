@@ -1,0 +1,23 @@
+esphome:
+  name: freezer_probe
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+
+logger:
+
+api:
+
+ota:
+
+dallas:
+  - pin: GPIO2
+
+sensor:
+  - platform: dallas
+    address: 0x4E041750F3EAFF28
+    name: "Freezer Temperature"
