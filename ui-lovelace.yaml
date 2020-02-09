@@ -135,7 +135,7 @@ views:
                 type: entity-button
             type: horizontal-stack
           - cards:
-              - entity: sensor.plex
+              - entity: sensor.plex_qinas
                 image: /local/images/plex.png
                 name: Plex
                 type: picture-entity
