@@ -21,16 +21,16 @@ switch:
     pin: D1
 
 binary_sensor:
-- id: ${devicename}_sensor
-  platform: gpio
-  internal: true
-  pin:
-    number: D2
-    mode: INPUT_PULLUP
-    inverted: False
-  device_class: garage_door
-  filters:
-    - delayed_on_off: 20ms
+  - id: ${devicename}_sensor
+    platform: gpio
+    internal: true
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+      inverted: False
+    device_class: garage_door
+    filters:
+      - delayed_on_off: 20ms
 
 cover:
   - platform: template
