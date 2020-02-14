@@ -1,0 +1,36 @@
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+
+logger:
+
+api:
+
+ota:
+
+binary_sensor:
+  - id: ${devicename}_sensor
+    platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      - switch.toggle: ${devicename}_relay
+
+switch:
+  - id: ${devicename}_relay
+    name: ${friendlyname}
+    platform: gpio
+    pin: GPIO12
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes

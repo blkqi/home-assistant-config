@@ -105,22 +105,6 @@ switch:
     host: !secret deluge_host
     username : remote
     password : !secret deluge_password
-  - platform: mqtt
-    name: Front String Lights
-    command_topic: "cmnd/porch/front/sonoff/POWER"
-    state_topic: "stat/porch/front/sonoff/POWER"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
-  - platform: mqtt
-    name: Back String Lights
-    command_topic: "cmnd/porch/back/sonoff/POWER"
-    state_topic: "stat/porch/back/sonoff/POWER"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
 
 tplink:
   discovery: false
