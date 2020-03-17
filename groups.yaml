@@ -22,10 +22,16 @@ String Lights:
   - switch.front_string_lights
   - switch.back_string_lights
 
-Outdoor Lights:
+Porch Lights:
   - switch.front_porch_light
+  - switch.back_porch_light
+
+Outdoor Lights:
+  - switch.shop_lights
+  - group.porch_lights
   - group.string_lights
 
 Other Lights:
   - switch.hall_light
   - switch.bedroom_light
+  - switch.office_light
