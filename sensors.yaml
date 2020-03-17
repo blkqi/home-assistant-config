@@ -1,3 +1,17 @@
+  - platform: template
+    sensors:
+      grow_lights_power:
+        value_template: "{{ states.switch.grow_lights.attributes.current_power_w }}"
+        unit_of_measurement:  W
+      grow_lights_current:
+        value_template: "{{ states.switch.grow_lights.attributes.current_a }}"
+        unit_of_measurement:  A
+      grow_lights_today_energy:
+        value_template: "{{ states.switch.grow_lights.attributes.today_energy_kwh }}"
+        unit_of_measurement:  kWh
+      grow_lights_total_energy:
+        value_template: "{{ states.switch.grow_lights.attributes.total_energy_kwh }}"
+        unit_of_measurement:  kWh
   - platform: yr
     monitored_conditions:
       - temperature

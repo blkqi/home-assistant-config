@@ -357,3 +357,37 @@ views:
     icon: 'mdi:settings'
     path: settings
     title: Settings
+  - icon: 'mdi:flower'
+    title: Grow
+    badges: []
+    cards:
+      - type: history-graph
+        title: 'Lights State'
+        entities:
+          - switch.grow_lights
+      - type: vertical-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.grow_lights_total_energy
+            name: "Energy (Total)"
+            line_color: '#2980b9'
+            line_width: 6
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.grow_lights_today_energy
+            name: "Energy (Today)"
+            line_color: '#2980b9'
+            line_width: 6
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.grow_lights_power
+            name: Power
+            line_color: '#2980b9'
+            line_width: 6
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.grow_lights_current
+            name: Current
+            line_color: '#2980b9'
+            line_width: 6
