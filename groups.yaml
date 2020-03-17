@@ -1,12 +1,10 @@
 brett:
   name: Brett
-  view: no
   entities:
     - device_tracker.qidroid
 
 sonja:
   name: Sonja
-  view: no
   entities:
     - device_tracker.spixel
 
