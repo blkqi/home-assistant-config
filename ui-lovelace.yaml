@@ -1,14 +1,14 @@
 resources:
   - type: module
-    url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
+    url: /local/community/simple-weather-card/simple-weather-card-bundle.js
   - type: module
-    url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    url: /local/community/mini-graph-card/mini-graph-card-bundle.js
   - type: module
-    url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+    url: /local/community/mini-media-player/mini-media-player-bundle.js
   - type: module
-    url: /community_plugin/simple-thermostat/simple-thermostat.js
+    url: /local/community/simple-thermostat/simple-thermostat.js
   - type: js
-    url: /community_plugin/bar-card/bar-card.js
+    url: /local/community/bar-card/bar-card.js
 title: Home
 views:
   - cards:
