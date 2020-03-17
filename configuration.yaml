@@ -110,6 +110,8 @@ tplink:
   discovery: false
   light:
     - host: 192.168.1.113
+  switch:
+    - host: 192.168.1.226
 
 plex:
     host: !secret plex_host
