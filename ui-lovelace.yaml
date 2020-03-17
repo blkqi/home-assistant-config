@@ -127,11 +127,17 @@ views:
                 type: light
             type: horizontal-stack
           - cards:
+              - entity: light.dining_light
+                name: Dining Light
+                type: entity-button
               - entity: switch.hall_light
-                name: Hall Lights
+                name: Hall Light
                 type: entity-button
               - entity: switch.bedroom_light
-                name: Bedroom Lights
+                name: Bedroom Light
+                type: entity-button
+              - entity: switch.office_light
+                name: Office Light
                 type: entity-button
             type: horizontal-stack
           - cards:
@@ -157,6 +163,12 @@ views:
           - entity: switch.front_porch_light
             type: entity-button
             name: Front Porch Light
+          - entity: switch.back_porch_light
+            type: entity-button
+            name: Back Porch Light
+          - entity: switch.shop_lights
+            type: entity-button
+            name: Shop Lights
       - entities:
           - cover.left_garage_door
           - cover.right_garage_door
