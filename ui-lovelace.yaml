@@ -7,7 +7,7 @@ resources:
     url: /local/community/mini-media-player/mini-media-player-bundle.js
   - type: module
     url: /local/community/simple-thermostat/simple-thermostat.js
-  - type: js
+  - type: module
     url: /local/community/bar-card/bar-card.js
 title: Home
 views:
@@ -119,6 +119,9 @@ views:
             extrema: true
       - cards:
           - cards:
+              - entity: light.dining_light
+                name: Dining Light
+                type: light
               - entity: light.table_lamps
                 name: Table Lamps
                 type: light
@@ -127,9 +130,6 @@ views:
                 type: light
             type: horizontal-stack
           - cards:
-              - entity: light.dining_light
-                name: Dining Light
-                type: entity-button
               - entity: switch.hall_light
                 name: Hall Light
                 type: entity-button
@@ -149,23 +149,34 @@ views:
         type: vertical-stack
       - type: vertical-stack
         cards:
-        - entity: group.string_lights
-          name: String Lights
-          type: entity-button
         - type: horizontal-stack
           cards:
-          - entity: switch.front_string_lights
-            name: Front String Lights
-            type: entity-button
-          - entity: switch.back_string_lights
-            name: Back String Lights
-            type: entity-button
-          - entity: switch.front_porch_light
-            type: entity-button
-            name: Front Porch Light
-          - entity: switch.back_porch_light
-            type: entity-button
-            name: Back Porch Light
+          - type: vertical-stack
+            cards:
+            - entity: group.porch_lights
+              name: Porch Lights
+              type: entity-button
+            - type: horizontal-stack
+              cards:
+              - entity: switch.front_porch_light
+                type: entity-button
+                name: Front
+              - entity: switch.back_porch_light
+                type: entity-button
+                name: Back
+          - type: vertical-stack
+            cards:
+            - entity: group.string_lights
+              name: String Lights
+              type: entity-button
+            - type: horizontal-stack
+              cards:
+              - entity: switch.front_string_lights
+                name: Front
+                type: entity-button
+              - entity: switch.back_string_lights
+                name: Back
+                type: entity-button
           - entity: switch.shop_lights
             type: entity-button
             name: Shop Lights
@@ -232,7 +243,6 @@ views:
                   green: 0
                   red: 0
                   yellow: 0
-                theme: default
                 type: gauge
               - entity: sensor.smoker_probe_2_temperature
                 max: 100
@@ -241,7 +251,6 @@ views:
                   green: 0
                   red: 0
                   yellow: 0
-                theme: default
                 type: gauge
               - entity: sensor.smoker_probe_3_temperature
                 max: 100
@@ -250,7 +259,6 @@ views:
                   green: 0
                   red: 0
                   yellow: 0
-                theme: default
                 type: gauge
               - entity: sensor.smoker_probe_4_temperature
                 max: 100
@@ -259,7 +267,6 @@ views:
                   green: 0
                   red: 0
                   yellow: 0
-                theme: default
                 type: gauge
   - badges: []
     cards:
