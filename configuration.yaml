@@ -16,20 +16,8 @@ frontend:
 config:
 
 http:
-  base_url: !secret base_url
   use_x_forwarded_for: true
   trusted_proxies: !secret nginx_host
-
-hacs:
-  token: !secret hacs_token
-  theme: true
-  python_script: true
-
-notify:
-  - name: qipush
-    platform: html5
-    gcm_api_key: !secret notify_key
-    gcm_sender_id: !secret notify_sender
 
 updater:
   reporting: false
@@ -77,11 +65,6 @@ alexa:
         - light
         - lock
 
-unifi:
-  controllers:
-    - host: !secret unifi_host
-      site: ytwfky8f
-
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
@@ -112,9 +95,6 @@ tplink:
     - host: 192.168.1.113
   switch:
     - host: 192.168.1.226
-
-plex:
-    host: !secret plex_host
 
 pi_hole:
     host: !secret pi_hole_host
