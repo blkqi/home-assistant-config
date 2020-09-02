@@ -10,9 +10,6 @@ homeassistant:
 lovelace:
   mode: yaml
 
-frontend:
-  themes: !include themes.yaml
-
 config:
 
 http:
