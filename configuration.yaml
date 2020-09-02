@@ -71,9 +71,6 @@ mqtt:
   username: qimqtt
   password: !secret mqtt_password
 
-media_player:
-  - platform: plex
-
 climate:
   - platform: generic_thermostat
     name: Living Room
