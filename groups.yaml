@@ -1,12 +1,12 @@
 brett:
   name: Brett
   entities:
-    - device_tracker.qidroid
+    - device_tracker.pixel_brett
 
 sonja:
   name: Sonja
   entities:
-    - device_tracker.spixel
+    - device_tracker.pixel_sonja
 
 Living Room:
   - light.table_lamps

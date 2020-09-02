@@ -15,7 +15,7 @@ views:
       - cards:
           - cards:
               - entities:
-                  - device_tracker.qidroid
+                  - device_tracker.pixel_brett
                 entity: group.brett
                 state_image:
                   home: /local/images/brett_home.jpg
@@ -23,7 +23,7 @@ views:
                 title: Brett
                 type: picture-glance
               - entities:
-                  - device_tracker.spixel
+                  - device_tracker.pixel_sonja
                 entity: group.sonja
                 state_image:
                   home: /local/images/sonja_home.jpg
