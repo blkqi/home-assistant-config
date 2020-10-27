@@ -12,17 +12,17 @@
       grow_lights_total_energy:
         value_template: "{{ states.switch.grow_lights.attributes.total_energy_kwh }}"
         unit_of_measurement:  kWh
-  - platform: yr
-    monitored_conditions:
-      - temperature
-      - symbol
-      - precipitation
-      - windSpeed
-      - pressure
-      - windDirection
-      - humidity
-      - fog
-      - cloudiness
+  #- platform: yr
+  #  monitored_conditions:
+  #    - temperature
+  #    - symbol
+  #    - precipitation
+  #    - windSpeed
+  #    - pressure
+  #    - windDirection
+  #    - humidity
+  #    - fog
+  #    - cloudiness
   - platform: deluge
     host: !secret deluge_host
     username : remote
