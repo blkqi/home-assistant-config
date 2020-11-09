@@ -21,6 +21,8 @@ updater:
 
 system_health:
 
+mobile_app:
+
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers

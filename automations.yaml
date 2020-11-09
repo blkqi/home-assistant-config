@@ -58,12 +58,14 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.freezer_temperature
-    above: 2
+    above: 0
+    for:
+      minutes: 15
   action:
-    service: notify.qipush
+    service: notify.mobile_app_pixel_3
     data_template:
       title: "Freezer temperature warning"
-      message: "{{ states.sensor.freezer_temperature.state }}°C"
+      message: "{{ states.sensor.freezer_temperature.state }}°F"
 
 - alias: 'Turn on grow lights in the morning'
   trigger:
