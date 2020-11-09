@@ -373,7 +373,7 @@ views:
             type: vertical-stack
         title: Pi-Hole
         type: vertical-stack
-    icon: 'mdi:settings'
+    icon: 'mdi:cog'
     path: settings
     title: Settings
   - icon: 'mdi:flower'
