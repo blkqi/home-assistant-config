@@ -1,5 +1,0 @@
-substitutions:
-  devicename: string_lights_back
-  friendlyname: "Back String Lights"
-
-<<: !include .string_lights.yaml
