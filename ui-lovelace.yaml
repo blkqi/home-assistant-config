@@ -125,8 +125,8 @@ views:
               - entity: light.table_lamps
                 name: Table Lamps
                 type: light
-              - entity: light.qibulb
-                name: Desk Lamp
+              - entity: light.floor_lamp
+                name: Floor Lamp
                 type: light
             type: horizontal-stack
           - cards:

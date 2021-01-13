@@ -91,6 +91,7 @@ tplink:
     - host: 192.168.1.113
   switch:
     - host: 192.168.1.226
+    - host: 192.168.1.239
 
 pi_hole:
     host: !secret pi_hole_host

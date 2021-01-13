@@ -17,4 +17,4 @@ sensor.count_sensors:
 sensor.count_switches:
   icon: mdi:light-switch
 light.qibulb:
-  haaska_name: Desk Lamp
+  haaska_name: Floor Lamp
