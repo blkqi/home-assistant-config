@@ -62,9 +62,9 @@
     entity_id: sensor.freezer_temperature
     above: 0
     for:
-      minutes: 15
+      minutes: 30
   action:
-    service: notify.mobile_app_pixel_3
+    service: notify.persistent_notification
     data_template:
       title: "Freezer temperature warning"
       message: "{{ states.sensor.freezer_temperature.state }}°F"
