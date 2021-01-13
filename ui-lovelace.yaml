@@ -211,7 +211,7 @@ views:
         card:
           type: markdown
           content: >
-            # 🚬 Not Smoking Right Now
+            # Not Smoking Right Now 🚬
       - type: conditional
         conditions:
         - entity: sensor.smoker_probe_1_temperature
